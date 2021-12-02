@@ -6,6 +6,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql import SQLContext
 from pyspark.sql.types import *
 from pyspark import SparkContext
+from pyspark.sql import functions as F
 # JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 """
 credentials = "access.json"
@@ -33,12 +34,15 @@ def process_data():
     df = spark.read.json(sc.parallelize([json]))
     # Move ticker column to the front
     df = df.select('symbol', 'askPrice', 'askQty', 'bidPrice', 'bidQty', 'closeTime', 'count', 'firstId', 'highPrice', 'lastId', 'lastPrice', 'lastQty', 'lowPrice', 'openPrice', 'openTime', 'prevClosePrice', 'priceChange', 'priceChangePercent', 'quoteVolume', 'volume', 'weightedAvgPrice')
+    # Rename Column names to Uppercase
+    df = df.select([F.col(x).alias(x.upper()) for x in df.columns])
+
     # Write Data to CSV
     df.toPandas().to_csv('tmpcsv.csv',
                          sep=',',
                          header=True,
                          index=False)
-
+    
 process_data()
 
 
