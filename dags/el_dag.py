@@ -1,6 +1,6 @@
 from datetime import timedelta
 from textwrap import dedent
-
+from airflow.models import Variable
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
 
@@ -8,11 +8,36 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.operators.docker_operator import DockerOperator
+from airflow.operators.python_operator import PythonOperator
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 from airflow import configuration as conf
 from kubernetes.client import models as k8s
+from airflow.settings import AIRFLOW_HOME
+from great_expectations_provider.operators.great_expectations import GreatExpectationsOperator
+import pandas as pd
+import os
+from gcloud import storage
+from docker.types import Mount
+os.environ["GCLOUD_PROJECT"] = Variable.get("GCLOUD_PROJECT")
+project_root = Variable.get("PROJECT_ROOT")
+
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    """Downloads a blob from the bucket."""
+    storage_client = storage.Client.from_service_account_json(
+        project_root + '/creds.json')
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
+    blob.download_to_filename(destination_file_name)
+
+    print('Blob {} downloaded to {}.'.format(
+        source_blob_name,
+        destination_file_name))
+    
+secret_dir = Mount(target='/secret',
+                     source=project_root,
+                     type='bind')
 
 default_args = {
     'owner': 'dixon',
@@ -36,6 +61,7 @@ default_args = {
     # 'sla_miss_callback': yet_another_function,
     # 'trigger_rule': 'all_success'
 }
+creds = Variable.get("google_creds", deserialize_json=False)
 with DAG(
     'Data-Pipeline',
     default_args=default_args,
@@ -45,19 +71,49 @@ with DAG(
     tags=['dag'],
 ) as dag:
     # Echoing the environment variables (credentials, etc) to access.json file
+
     t1 = BashOperator(
         task_id='access_key',
-        bash_command='echo {{var.json.google_creds}} > creds.json',
-    ),
-    
-    t2 = BashOperator(
-        task_id='pull_data',
-        bash_command='python3 /Users/dix/Desktop/portfolio/el-snowflake/source/main.py'
-    ),
-
-
-    t3 = BashOperator(
-        task_id='push_data',
-        bash_command='python3 /Users/dix/Desktop/portfolio/el-snowflake/connectors/snowflake_conn.py'
+        bash_command='echo {{ var.value.google_creds }} > ' + project_root + '/creds.json',
     )
-    t1 >> t2 >> t3
+    
+
+    t2 = DockerOperator(
+        task_id='pull_data',
+        image='ghcr.io/dixon2678/el-snowflake:main',
+        api_version='auto',
+        auto_remove=True,
+        mounts=[secret_dir],
+        environment={
+        'PROJECT_ROOT': project_root,
+        'GCLOUD_PROJECT': os.environ["GCLOUD_PROJECT"]
+        }
+    )
+
+    t3 = PythonOperator(
+        task_id='download_tmpcsv',
+        python_callable= download_blob,
+        op_kwargs = {"bucket_name" : "binance_project", "source_blob_name" : "tmpcsv.csv", "destination_file_name" : project_root + "/tmpcsv.csv"},
+        dag=dag,
+    )
+
+    t4 = BashOperator(
+        task_id='ge_checkpoint',
+        bash_command='cd '+ project_root + ' && great_expectations --v3-api checkpoint run data_pull || true'
+    )
+    
+    t5 = DockerOperator(
+        task_id='push_data',
+        image='ghcr.io/dixon2678/el-snowflake:main',
+        api_version='auto',
+        auto_remove=True,
+        mounts=[secret_dir],
+        entrypoint='python3 /connectors/snowflake_conn.py',
+        environment={
+        'PROJECT_ROOT': project_root,
+        'GCLOUD_PROJECT': os.environ["GCLOUD_PROJECT"]
+        }
+    )
+    
+    
+    t1 >> t2 >> t3 >> t4 >> t5
