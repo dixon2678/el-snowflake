@@ -11,6 +11,9 @@ from gcloud import storage
 
 os.environ["GCLOUD_PROJECT"] = "My First Project"
 # project_root = os.environ["PROJECT_ROOT"]
+
+# Upload data to GCS
+
 def upload_to_bucket(blob_name, path_to_file, bucket_name):
     """ Upload data to a bucket"""
 
@@ -23,11 +26,14 @@ def upload_to_bucket(blob_name, path_to_file, bucket_name):
 
     return blob.public_url
 
+# Get data from Binance API
+
 def get_binance_data():
     url = "https://api2.binance.com/api/v3/ticker/24hr"
     response = requests.request("GET", url)
     return response
 
+# Preprocess Data with Spark
 
 def process_data():
     json = get_binance_data().json()
