@@ -48,7 +48,7 @@ Note: To avoid security issues and added complexity, using IAM instead of manual
 
 ## Airflow DAG Graph
 
-<img width="1361" alt="Screen Shot 2021-12-05 at 10 18 03 PM" src="https://user-images.githubusercontent.com/81808129/144750342-1a98512e-d774-4e3f-b1d5-3ff929c9d16c.png">
+<img width="931" alt="Screen Shot 2021-12-06 at 12 48 42 AM" src="https://user-images.githubusercontent.com/81808129/144755526-45f3aa77-bb6d-447e-b5bc-dea832643f46.png">
 
 - access_key - BashOperator: Bash command to store the google_creds environment variable to the project path
 - pull_data - DockerOperator: Pull Docker image from GitHub's Packages Container Registry - Python Script to pull data from Binance API, preprocess with Spark, and Upload to GCS Bucket. (WIP: Add testing to Raw Binance data with Great Expectations)
