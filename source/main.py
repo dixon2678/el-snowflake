@@ -7,16 +7,21 @@ from pyspark.sql import SQLContext
 from pyspark.sql.types import *
 from pyspark import SparkContext
 from pyspark.sql import functions as F
-# JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
-"""
-credentials = "access.json"
-jsonFile = open(credentials, 'r')
-values = json.load(jsonFile)
-jsonFile.close()
-"""
+from gcloud import storage
 
-os.environ['PYSPARK_PYTHON'] = "/usr/bin/python3"
-os.environ['PYSPARK_DRIVER_PYTHON'] = "/usr/bin/python3"
+os.environ["GCLOUD_PROJECT"] = "My First Project"
+project_root = os.environ["PROJECT_ROOT"]
+def upload_to_bucket(blob_name, path_to_file, bucket_name):
+    """ Upload data to a bucket"""
+
+    storage_client = storage.Client.from_service_account_json(
+        project_root + '/creds.json')
+
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    blob.upload_from_filename(path_to_file)
+
+    return blob.public_url
 
 def get_binance_data():
     url = "https://api2.binance.com/api/v3/ticker/24hr"
@@ -36,7 +41,7 @@ def process_data():
     df = df.select('symbol', 'askPrice', 'askQty', 'bidPrice', 'bidQty', 'closeTime', 'count', 'firstId', 'highPrice', 'lastId', 'lastPrice', 'lastQty', 'lowPrice', 'openPrice', 'openTime', 'prevClosePrice', 'priceChange', 'priceChangePercent', 'quoteVolume', 'volume', 'weightedAvgPrice')
     # Rename Column names to Uppercase
     df = df.select([F.col(x).alias(x.upper()) for x in df.columns])
-
+    df.show()
     # Write Data to CSV
     df.toPandas().to_csv('tmpcsv.csv',
                          sep=',',
@@ -44,6 +49,9 @@ def process_data():
                          index=False)
     
 process_data()
+upload_to_bucket('tmpcsv.csv', 'tmpcsv.csv', 'binance_project')
+
+
 
 
  

@@ -14,45 +14,46 @@ config_version: 3.0
 # You can use the CLI command `great_expectations datasource new` to help you
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/reference/core_concepts/datasource.html
 datasources:
-  datasource:
-    class_name: Datasource
+  local:
+    module_name: great_expectations.datasource
+    execution_engine:
+      module_name: great_expectations.execution_engine
+      class_name: PandasExecutionEngine
     data_connectors:
       default_inferred_data_connector_name:
+        base_directory: ..
         default_regex:
           group_names:
             - data_asset_name
           pattern: (.*)
-        base_directory: ..
         class_name: InferredAssetFilesystemDataConnector
         module_name: great_expectations.datasource.data_connector
       default_runtime_data_connector_name:
-        class_name: RuntimeDataConnector
         batch_identifiers:
           - default_identifier_name
+        class_name: RuntimeDataConnector
         module_name: great_expectations.datasource.data_connector
+    class_name: Datasource
+  my_datasource:
     module_name: great_expectations.datasource
     execution_engine:
-      class_name: PandasExecutionEngine
       module_name: great_expectations.execution_engine
-
-# This config file supports variable substitution which enables: 1) keeping
-# secrets out of source control & 2) environment-based configuration changes
-# such as staging vs prod.
-#
-# When GE encounters substitution syntax (like `my_key: ${my_value}` or
-# `my_key: $my_value`) in the great_expectations.yml file, it will attempt
-# to replace the value of `my_key` with the value from an environment
-# variable `my_value` or a corresponding key read from this config file,
-# which is defined through the `config_variables_file_path`.
-# Environment variables take precedence over variables defined here.
-#
-# Substitution values defined here can be a simple (non-nested) value,
-# nested value such as a dictionary, or an environment variable (i.e. ${ENV_VAR})
-#
-#
-# https://docs.greatexpectations.io/en/latest/guides/how_to_guides/configuring_data_contexts/how_to_use_a_yaml_file_or_environment_variables_to_populate_credentials.html
-
-
+      class_name: PandasExecutionEngine
+    data_connectors:
+      default_inferred_data_connector_name:
+        base_directory: gs://binance_project
+        default_regex:
+          group_names:
+            - data_asset_name
+          pattern: (.*)
+        class_name: InferredAssetFilesystemDataConnector
+        module_name: great_expectations.datasource.data_connector
+      default_runtime_data_connector_name:
+        batch_identifiers:
+          - default_identifier_name
+        class_name: RuntimeDataConnector
+        module_name: great_expectations.datasource.data_connector
+    class_name: Datasource
 config_variables_file_path: uncommitted/config_variables.yml
 
 # The plugins_directory will be added to your python path for custom modules
@@ -112,8 +113,8 @@ data_docs_sites:
       class_name: DefaultSiteIndexBuilder
 
 anonymous_usage_statistics:
+  data_context_id: 02d203e3-a85a-4b5d-acc0-a1ce15549617
   enabled: true
-  data_context_id: 94dd1ecb-fb1d-48a1-9ee1-f96bdcbec538
 notebooks:
 concurrency:
   enabled: false

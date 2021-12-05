@@ -1,6 +1,6 @@
 {
   "data_asset_type": null,
-  "expectation_suite_name": "verify_processed",
+  "expectation_suite_name": "default",
   "expectations": [
     {
       "expectation_context": {
@@ -10,27 +10,27 @@
       "ge_cloud_id": null,
       "kwargs": {
         "column_list": [
-          "symbol",
-          "askPrice",
-          "askQty",
-          "bidPrice",
-          "bidQty",
-          "closeTime",
-          "count",
-          "firstId",
-          "highPrice",
-          "lastId",
-          "lastPrice",
-          "lastQty",
-          "lowPrice",
-          "openPrice",
-          "openTime",
-          "prevClosePrice",
-          "priceChange",
-          "priceChangePercent",
-          "quoteVolume",
-          "volume",
-          "weightedAvgPrice"
+          "SYMBOL",
+          "ASKPRICE",
+          "ASKQTY",
+          "BIDPRICE",
+          "BIDQTY",
+          "CLOSETIME",
+          "COUNT",
+          "FIRSTID",
+          "HIGHPRICE",
+          "LASTID",
+          "LASTPRICE",
+          "LASTQTY",
+          "LOWPRICE",
+          "OPENPRICE",
+          "OPENTIME",
+          "PREVCLOSEPRICE",
+          "PRICECHANGE",
+          "PRICECHANGEPERCENT",
+          "QUOTEVOLUME",
+          "VOLUME",
+          "WEIGHTEDAVGPRICE"
         ]
       },
       "meta": {}
@@ -42,8 +42,8 @@
       "expectation_type": "expect_table_row_count_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "max_value": 1805,
-        "min_value": 1805
+        "max_value": 1818,
+        "min_value": 1818
       },
       "meta": {}
     },
@@ -54,7 +54,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "symbol"
+        "column": "SYMBOL"
       },
       "meta": {}
     },
@@ -65,7 +65,7 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "symbol",
+        "column": "SYMBOL",
         "max_value": 1.0,
         "min_value": 1.0
       },
@@ -78,7 +78,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "symbol",
+        "column": "SYMBOL",
         "type_list": [
           "CHAR",
           "NCHAR",
@@ -103,7 +103,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "askPrice",
+        "column": "ASKPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -116,9 +116,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "askPrice",
-        "max_value": 846999999.0,
-        "min_value": 846999999.0
+        "column": "ASKPRICE",
+        "max_value": 708721335.0,
+        "min_value": 708721335.0
       },
       "meta": {}
     },
@@ -129,9 +129,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "askPrice",
-        "max_value": 545801.4289930392,
-        "min_value": 545801.4289930392
+        "column": "ASKPRICE",
+        "max_value": 455157.66354366,
+        "min_value": 455157.66354366
       },
       "meta": {}
     },
@@ -142,9 +142,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "askPrice",
-        "max_value": 0.004488,
-        "min_value": 0.004488
+        "column": "ASKPRICE",
+        "max_value": 0.00412075,
+        "min_value": 0.00412075
       },
       "meta": {}
     },
@@ -156,305 +156,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "askPrice",
-        "quantile_ranges": {
-          "quantiles": [
-            0.05,
-            0.25,
-            0.5,
-            0.75,
-            0.95
-          ],
-          "value_ranges": [
-            [
-              0.0,
-              0.0
-            ],
-            [
-              4.1e-07,
-              4.1e-07
-            ],
-            [
-              0.004488,
-              0.004488
-            ],
-            [
-              2.4753,
-              2.4753
-            ],
-            [
-              584.6,
-              584.6
-            ]
-          ]
-        }
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_values_to_not_be_null",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askPrice"
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askPrice",
-        "max_value": 0.7351800554016621,
-        "min_value": 0.7351800554016621
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_values_to_be_in_type_list",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askPrice",
-        "type_list": [
-          "FLOAT",
-          "FLOAT4",
-          "FLOAT8",
-          "FLOAT64",
-          "DOUBLE",
-          "DOUBLE_PRECISION",
-          "NUMERIC",
-          "FloatType",
-          "DoubleType",
-          "float",
-          "float_",
-          "float16",
-          "float32",
-          "float64",
-          "number",
-          "DECIMAL",
-          "REAL"
-        ]
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_min_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "max_value": 0.0,
-        "min_value": 0.0
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_max_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "max_value": 109915167.0,
-        "min_value": 109915167.0
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_mean_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "max_value": 275216.8519336621,
-        "min_value": 275216.8519336621
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_median_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "max_value": 57.43,
-        "min_value": 57.43
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_quantile_values_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "allow_relative_error": "lower",
-        "column": "askQty",
-        "quantile_ranges": {
-          "quantiles": [
-            0.05,
-            0.25,
-            0.5,
-            0.75,
-            0.95
-          ],
-          "value_ranges": [
-            [
-              0.0,
-              0.0
-            ],
-            [
-              0.007,
-              0.007
-            ],
-            [
-              57.43,
-              57.43
-            ],
-            [
-              1003.0,
-              1003.0
-            ],
-            [
-              124528.0,
-              124528.0
-            ]
-          ]
-        }
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_values_to_not_be_null",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty"
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "max_value": 0.7008310249307479,
-        "min_value": 0.7008310249307479
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_values_to_be_in_type_list",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "askQty",
-        "type_list": [
-          "FLOAT",
-          "FLOAT4",
-          "FLOAT8",
-          "FLOAT64",
-          "DOUBLE",
-          "DOUBLE_PRECISION",
-          "NUMERIC",
-          "FloatType",
-          "DoubleType",
-          "float",
-          "float_",
-          "float16",
-          "float32",
-          "float64",
-          "number",
-          "DECIMAL",
-          "REAL"
-        ]
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_min_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "bidPrice",
-        "max_value": 0.0,
-        "min_value": 0.0
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_max_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "bidPrice",
-        "max_value": 846234566.0,
-        "min_value": 846234566.0
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_mean_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "bidPrice",
-        "max_value": 545131.9898597228,
-        "min_value": 545131.9898597228
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_median_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "column": "bidPrice",
-        "max_value": 0.004487,
-        "min_value": 0.004487
-      },
-      "meta": {}
-    },
-    {
-      "expectation_context": {
-        "description": null
-      },
-      "expectation_type": "expect_column_quantile_values_to_be_between",
-      "ge_cloud_id": null,
-      "kwargs": {
-        "allow_relative_error": "lower",
-        "column": "bidPrice",
+        "column": "ASKPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -473,16 +175,16 @@
               4e-07
             ],
             [
-              0.004487,
-              0.004487
+              0.004105,
+              0.004105
             ],
             [
-              2.4731,
-              2.4731
+              1.903,
+              1.903
             ],
             [
-              584.3,
-              584.3
+              529.3,
+              529.3
             ]
           ]
         }
@@ -496,7 +198,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidPrice"
+        "column": "ASKPRICE"
       },
       "meta": {}
     },
@@ -507,9 +209,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidPrice",
-        "max_value": 0.7274238227146814,
-        "min_value": 0.7274238227146814
+        "column": "ASKPRICE",
+        "max_value": 0.7387238723872387,
+        "min_value": 0.7387238723872387
       },
       "meta": {}
     },
@@ -520,7 +222,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidPrice",
+        "column": "ASKPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -550,7 +252,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
+        "column": "ASKQTY",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -563,9 +265,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
-        "max_value": 316626914.0,
-        "min_value": 316626914.0
+        "column": "ASKQTY",
+        "max_value": 194797860.0,
+        "min_value": 194797860.0
       },
       "meta": {}
     },
@@ -576,9 +278,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
-        "max_value": 565056.5613061939,
-        "min_value": 565056.5613061939
+        "column": "ASKQTY",
+        "max_value": 385032.9189559186,
+        "min_value": 385032.9189559186
       },
       "meta": {}
     },
@@ -589,9 +291,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
-        "max_value": 57.536,
-        "min_value": 57.536
+        "column": "ASKQTY",
+        "max_value": 62.135000000000005,
+        "min_value": 62.135000000000005
       },
       "meta": {}
     },
@@ -603,7 +305,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "bidQty",
+        "column": "ASKQTY",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -618,20 +320,20 @@
               0.0
             ],
             [
-              0.0039,
-              0.0039
+              0.00234,
+              0.00234
             ],
             [
-              57.536,
-              57.536
+              62.0,
+              62.0
             ],
             [
-              1297.0,
-              1297.0
+              1097.0,
+              1097.0
             ],
             [
-              138701.0,
-              138701.0
+              85863.7,
+              85863.7
             ]
           ]
         }
@@ -645,7 +347,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty"
+        "column": "ASKQTY"
       },
       "meta": {}
     },
@@ -656,9 +358,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
-        "max_value": 0.6880886426592798,
-        "min_value": 0.6880886426592798
+        "column": "ASKQTY",
+        "max_value": 0.7002200220022002,
+        "min_value": 0.7002200220022002
       },
       "meta": {}
     },
@@ -669,7 +371,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "bidQty",
+        "column": "ASKQTY",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -699,9 +401,9 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
-        "max_value": 1637922559863,
-        "min_value": 1637922559863
+        "column": "BIDPRICE",
+        "max_value": 0.0,
+        "min_value": 0.0
       },
       "meta": {}
     },
@@ -712,9 +414,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
-        "max_value": 1638376187157,
-        "min_value": 1638376187157
+        "column": "BIDPRICE",
+        "max_value": 707760047.0,
+        "min_value": 707760047.0
       },
       "meta": {}
     },
@@ -725,9 +427,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
-        "max_value": 1638263839731.3374,
-        "min_value": 1638263839731.3374
+        "column": "BIDPRICE",
+        "max_value": 454320.2547078314,
+        "min_value": 454320.2547078314
       },
       "meta": {}
     },
@@ -738,9 +440,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
-        "max_value": 1638376183622.0,
-        "min_value": 1638376183622.0
+        "column": "BIDPRICE",
+        "max_value": 0.0041165,
+        "min_value": 0.0041165
       },
       "meta": {}
     },
@@ -752,7 +454,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "closeTime",
+        "column": "BIDPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -763,24 +465,24 @@
           ],
           "value_ranges": [
             [
-              1637922559863,
-              1637922559863
+              0.0,
+              0.0
             ],
             [
-              1638375860980,
-              1638375860980
+              3.9e-07,
+              3.9e-07
             ],
             [
-              1638376183622,
-              1638376183622
+              0.0041,
+              0.0041
             ],
             [
-              1638376186286,
-              1638376186286
+              1.895,
+              1.895
             ],
             [
-              1638376187088,
-              1638376187088
+              529.0,
+              529.0
             ]
           ]
         }
@@ -794,7 +496,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime"
+        "column": "BIDPRICE"
       },
       "meta": {}
     },
@@ -805,9 +507,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
-        "max_value": 0.6376731301939058,
-        "min_value": 0.6376731301939058
+        "column": "BIDPRICE",
+        "max_value": 0.7282728272827282,
+        "min_value": 0.7282728272827282
       },
       "meta": {}
     },
@@ -818,7 +520,305 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "closeTime",
+        "column": "BIDPRICE",
+        "type_list": [
+          "FLOAT",
+          "FLOAT4",
+          "FLOAT8",
+          "FLOAT64",
+          "DOUBLE",
+          "DOUBLE_PRECISION",
+          "NUMERIC",
+          "FloatType",
+          "DoubleType",
+          "float",
+          "float_",
+          "float16",
+          "float32",
+          "float64",
+          "number",
+          "DECIMAL",
+          "REAL"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_min_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "max_value": 0.0,
+        "min_value": 0.0
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_max_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "max_value": 152427165.0,
+        "min_value": 152427165.0
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_mean_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "max_value": 464254.2929031958,
+        "min_value": 464254.2929031958
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_median_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "max_value": 49.0,
+        "min_value": 49.0
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_quantile_values_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "allow_relative_error": "lower",
+        "column": "BIDQTY",
+        "quantile_ranges": {
+          "quantiles": [
+            0.05,
+            0.25,
+            0.5,
+            0.75,
+            0.95
+          ],
+          "value_ranges": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.001,
+              0.001
+            ],
+            [
+              49.0,
+              49.0
+            ],
+            [
+              840.0,
+              840.0
+            ],
+            [
+              98040.0,
+              98040.0
+            ]
+          ]
+        }
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "max_value": 0.6853685368536854,
+        "min_value": 0.6853685368536854
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_values_to_be_in_type_list",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "BIDQTY",
+        "type_list": [
+          "FLOAT",
+          "FLOAT4",
+          "FLOAT8",
+          "FLOAT64",
+          "DOUBLE",
+          "DOUBLE_PRECISION",
+          "NUMERIC",
+          "FloatType",
+          "DoubleType",
+          "float",
+          "float_",
+          "float16",
+          "float32",
+          "float64",
+          "number",
+          "DECIMAL",
+          "REAL"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_min_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
+        "max_value": 1638443296961,
+        "min_value": 1638443296961
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_max_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
+        "max_value": 1638636093106,
+        "min_value": 1638636093106
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_mean_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
+        "max_value": 1638588259204.878,
+        "min_value": 1638588259204.878
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_median_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
+        "max_value": 1638636090016.0,
+        "min_value": 1638636090016.0
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_quantile_values_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "allow_relative_error": "lower",
+        "column": "CLOSETIME",
+        "quantile_ranges": {
+          "quantiles": [
+            0.05,
+            0.25,
+            0.5,
+            0.75,
+            0.95
+          ],
+          "value_ranges": [
+            [
+              1638443296961,
+              1638443296961
+            ],
+            [
+              1638635591315,
+              1638635591315
+            ],
+            [
+              1638636090013,
+              1638636090013
+            ],
+            [
+              1638636092739,
+              1638636092739
+            ],
+            [
+              1638636093084,
+              1638636093084
+            ]
+          ]
+        }
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
+        "max_value": 0.5836083608360836,
+        "min_value": 0.5836083608360836
+      },
+      "meta": {}
+    },
+    {
+      "expectation_context": {
+        "description": null
+      },
+      "expectation_type": "expect_column_values_to_be_in_type_list",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "CLOSETIME",
         "type_list": [
           "INTEGER",
           "integer",
@@ -852,7 +852,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
+        "column": "COUNT",
         "max_value": 0,
         "min_value": 0
       },
@@ -865,9 +865,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
-        "max_value": 2438859,
-        "min_value": 2438859
+        "column": "COUNT",
+        "max_value": 3685835,
+        "min_value": 3685835
       },
       "meta": {}
     },
@@ -878,9 +878,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
-        "max_value": 30560.881440443212,
-        "min_value": 30560.881440443212
+        "column": "COUNT",
+        "max_value": 56665.392189218925,
+        "min_value": 56665.392189218925
       },
       "meta": {}
     },
@@ -891,9 +891,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
-        "max_value": 3122.0,
-        "min_value": 3122.0
+        "column": "COUNT",
+        "max_value": 7660.5,
+        "min_value": 7660.5
       },
       "meta": {}
     },
@@ -905,7 +905,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "count",
+        "column": "COUNT",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -920,20 +920,20 @@
               0
             ],
             [
-              179,
-              179
+              355,
+              355
             ],
             [
-              3122,
-              3122
+              7658,
+              7658
             ],
             [
-              14152,
-              14152
+              30307,
+              30307
             ],
             [
-              127552,
-              127552
+              243966,
+              243966
             ]
           ]
         }
@@ -947,7 +947,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count"
+        "column": "COUNT"
       },
       "meta": {}
     },
@@ -958,9 +958,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
-        "max_value": 0.7290858725761773,
-        "min_value": 0.7290858725761773
+        "column": "COUNT",
+        "max_value": 0.7442244224422442,
+        "min_value": 0.7442244224422442
       },
       "meta": {}
     },
@@ -971,7 +971,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "count",
+        "column": "COUNT",
         "type_list": [
           "INTEGER",
           "integer",
@@ -1005,7 +1005,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
+        "column": "FIRSTID",
         "max_value": -1,
         "min_value": -1
       },
@@ -1018,9 +1018,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
-        "max_value": 1169235755,
-        "min_value": 1169235755
+        "column": "FIRSTID",
+        "max_value": 1173413138,
+        "min_value": 1173413138
       },
       "meta": {}
     },
@@ -1031,9 +1031,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
-        "max_value": 11104849.120221607,
-        "min_value": 11104849.120221607
+        "column": "FIRSTID",
+        "max_value": 11121415.506050605,
+        "min_value": 11121415.506050605
       },
       "meta": {}
     },
@@ -1044,9 +1044,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
-        "max_value": 2183001.0,
-        "min_value": 2183001.0
+        "column": "FIRSTID",
+        "max_value": 2144311.0,
+        "min_value": 2144311.0
       },
       "meta": {}
     },
@@ -1058,7 +1058,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "firstId",
+        "column": "FIRSTID",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1073,20 +1073,20 @@
               -1
             ],
             [
-              1992,
-              1992
+              2134,
+              2134
             ],
             [
-              2183001,
-              2183001
+              2138007,
+              2138007
             ],
             [
-              8235382,
-              8235382
+              8244392,
+              8244392
             ],
             [
-              41532807,
-              41532807
+              42181253,
+              42181253
             ]
           ]
         }
@@ -1100,7 +1100,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId"
+        "column": "FIRSTID"
       },
       "meta": {}
     },
@@ -1111,9 +1111,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
-        "max_value": 0.7512465373961219,
-        "min_value": 0.7512465373961219
+        "column": "FIRSTID",
+        "max_value": 0.7535753575357536,
+        "min_value": 0.7535753575357536
       },
       "meta": {}
     },
@@ -1124,7 +1124,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "firstId",
+        "column": "FIRSTID",
         "type_list": [
           "INTEGER",
           "integer",
@@ -1158,7 +1158,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
+        "column": "HIGHPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -1171,9 +1171,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
-        "max_value": 849000000.0,
-        "min_value": 849000000.0
+        "column": "HIGHPRICE",
+        "max_value": 802948053.0,
+        "min_value": 802948053.0
       },
       "meta": {}
     },
@@ -1184,9 +1184,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
-        "max_value": 547382.2542585499,
-        "min_value": 547382.2542585499
+        "column": "HIGHPRICE",
+        "max_value": 513285.1677598183,
+        "min_value": 513285.1677598183
       },
       "meta": {}
     },
@@ -1197,9 +1197,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
-        "max_value": 0.004811,
-        "min_value": 0.004811
+        "column": "HIGHPRICE",
+        "max_value": 0.0051395,
+        "min_value": 0.0051395
       },
       "meta": {}
     },
@@ -1211,7 +1211,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "highPrice",
+        "column": "HIGHPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1226,20 +1226,20 @@
               0.0
             ],
             [
-              4.3e-07,
-              4.3e-07
+              5.8e-07,
+              5.8e-07
             ],
             [
-              0.004811,
-              0.004811
+              0.005109,
+              0.005109
             ],
             [
-              2.5848,
-              2.5848
+              2.425,
+              2.425
             ],
             [
-              587.2,
-              587.2
+              583.0,
+              583.0
             ]
           ]
         }
@@ -1253,7 +1253,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice"
+        "column": "HIGHPRICE"
       },
       "meta": {}
     },
@@ -1264,9 +1264,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
-        "max_value": 0.7290858725761773,
-        "min_value": 0.7290858725761773
+        "column": "HIGHPRICE",
+        "max_value": 0.7194719471947195,
+        "min_value": 0.7194719471947195
       },
       "meta": {}
     },
@@ -1277,7 +1277,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "highPrice",
+        "column": "HIGHPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -1307,7 +1307,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
+        "column": "LASTID",
         "max_value": -1,
         "min_value": -1
       },
@@ -1320,9 +1320,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
-        "max_value": 1170633126,
-        "min_value": 1170633126
+        "column": "LASTID",
+        "max_value": 1177098972,
+        "min_value": 1177098972
       },
       "meta": {}
     },
@@ -1333,9 +1333,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
-        "max_value": 11135409.24930748,
-        "min_value": 11135409.24930748
+        "column": "LASTID",
+        "max_value": 11178080.144114412,
+        "min_value": 11178080.144114412
       },
       "meta": {}
     },
@@ -1346,9 +1346,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
-        "max_value": 2184438.0,
-        "min_value": 2184438.0
+        "column": "LASTID",
+        "max_value": 2154838.0,
+        "min_value": 2154838.0
       },
       "meta": {}
     },
@@ -1360,7 +1360,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "lastId",
+        "column": "LASTID",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1375,20 +1375,20 @@
               -1
             ],
             [
-              7228,
-              7228
+              9345,
+              9345
             ],
             [
-              2184438,
-              2184438
+              2153326,
+              2153326
             ],
             [
-              8314885,
-              8314885
+              8253303,
+              8253303
             ],
             [
-              41770395,
-              41770395
+              42353929,
+              42353929
             ]
           ]
         }
@@ -1402,7 +1402,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId"
+        "column": "LASTID"
       },
       "meta": {}
     },
@@ -1413,9 +1413,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
-        "max_value": 0.7529085872576178,
-        "min_value": 0.7529085872576178
+        "column": "LASTID",
+        "max_value": 0.7546754675467546,
+        "min_value": 0.7546754675467546
       },
       "meta": {}
     },
@@ -1426,7 +1426,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastId",
+        "column": "LASTID",
         "type_list": [
           "INTEGER",
           "integer",
@@ -1460,7 +1460,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
+        "column": "LASTPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -1473,9 +1473,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
-        "max_value": 846846179.0,
-        "min_value": 846846179.0
+        "column": "LASTPRICE",
+        "max_value": 708246844.0,
+        "min_value": 708246844.0
       },
       "meta": {}
     },
@@ -1486,9 +1486,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
-        "max_value": 545511.0352043357,
-        "min_value": 545511.0352043357
+        "column": "LASTPRICE",
+        "max_value": 454755.28846274765,
+        "min_value": 454755.28846274765
       },
       "meta": {}
     },
@@ -1499,9 +1499,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
-        "max_value": 0.004488,
-        "min_value": 0.004488
+        "column": "LASTPRICE",
+        "max_value": 0.00439071,
+        "min_value": 0.00439071
       },
       "meta": {}
     },
@@ -1513,7 +1513,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "lastPrice",
+        "column": "LASTPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1528,20 +1528,20 @@
               0.0
             ],
             [
-              4.1e-07,
-              4.1e-07
+              5.1e-07,
+              5.1e-07
             ],
             [
-              0.004488,
-              0.004488
+              0.00438442,
+              0.00438442
             ],
             [
-              2.475,
-              2.475
+              1.9,
+              1.9
             ],
             [
-              584.6,
-              584.6
+              530.0,
+              530.0
             ]
           ]
         }
@@ -1555,7 +1555,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice"
+        "column": "LASTPRICE"
       },
       "meta": {}
     },
@@ -1566,9 +1566,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
-        "max_value": 0.7351800554016621,
-        "min_value": 0.7351800554016621
+        "column": "LASTPRICE",
+        "max_value": 0.7315731573157316,
+        "min_value": 0.7315731573157316
       },
       "meta": {}
     },
@@ -1579,7 +1579,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastPrice",
+        "column": "LASTPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -1609,7 +1609,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
+        "column": "LASTQTY",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -1622,9 +1622,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
-        "max_value": 33064225.0,
-        "min_value": 33064225.0
+        "column": "LASTQTY",
+        "max_value": 128333794.0,
+        "min_value": 128333794.0
       },
       "meta": {}
     },
@@ -1635,9 +1635,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
-        "max_value": 35339.058525972294,
-        "min_value": 35339.058525972294
+        "column": "LASTQTY",
+        "max_value": 80897.29736928492,
+        "min_value": 80897.29736928492
       },
       "meta": {}
     },
@@ -1648,9 +1648,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
-        "max_value": 12.44,
-        "min_value": 12.44
+        "column": "LASTQTY",
+        "max_value": 13.0,
+        "min_value": 13.0
       },
       "meta": {}
     },
@@ -1662,7 +1662,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "lastQty",
+        "column": "LASTQTY",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1677,20 +1677,20 @@
               0.0
             ],
             [
-              0.00158,
-              0.00158
+              0.00112,
+              0.00112
             ],
             [
-              12.44,
-              12.44
+              13.0,
+              13.0
             ],
             [
-              242.8,
-              242.8
+              229.57,
+              229.57
             ],
             [
-              13213.0,
-              13213.0
+              10729.0,
+              10729.0
             ]
           ]
         }
@@ -1704,7 +1704,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty"
+        "column": "LASTQTY"
       },
       "meta": {}
     },
@@ -1715,9 +1715,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
-        "max_value": 0.614404432132964,
-        "min_value": 0.614404432132964
+        "column": "LASTQTY",
+        "max_value": 0.61001100110011,
+        "min_value": 0.61001100110011
       },
       "meta": {}
     },
@@ -1728,7 +1728,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lastQty",
+        "column": "LASTQTY",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -1758,7 +1758,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
+        "column": "LOWPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -1771,9 +1771,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
-        "max_value": 812222222.0,
-        "min_value": 812222222.0
+        "column": "LOWPRICE",
+        "max_value": 631219404.0,
+        "min_value": 631219404.0
       },
       "meta": {}
     },
@@ -1784,9 +1784,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
-        "max_value": 522770.43343686,
-        "min_value": 522770.43343686
+        "column": "LOWPRICE",
+        "max_value": 403756.36491632357,
+        "min_value": 403756.36491632357
       },
       "meta": {}
     },
@@ -1797,9 +1797,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
-        "max_value": 0.004454,
-        "min_value": 0.004454
+        "column": "LOWPRICE",
+        "max_value": 0.0037623,
+        "min_value": 0.0037623
       },
       "meta": {}
     },
@@ -1811,7 +1811,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "lowPrice",
+        "column": "LOWPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1826,20 +1826,20 @@
               0.0
             ],
             [
-              4e-07,
-              4e-07
+              4.6e-07,
+              4.6e-07
             ],
             [
-              0.004454,
-              0.004454
+              0.0037236,
+              0.0037236
             ],
             [
-              2.276,
-              2.276
+              1.598,
+              1.598
             ],
             [
-              560.1,
-              560.1
+              448.4,
+              448.4
             ]
           ]
         }
@@ -1853,7 +1853,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice"
+        "column": "LOWPRICE"
       },
       "meta": {}
     },
@@ -1864,9 +1864,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
-        "max_value": 0.7318559556786703,
-        "min_value": 0.7318559556786703
+        "column": "LOWPRICE",
+        "max_value": 0.7343234323432343,
+        "min_value": 0.7343234323432343
       },
       "meta": {}
     },
@@ -1877,7 +1877,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "lowPrice",
+        "column": "LOWPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -1907,7 +1907,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
+        "column": "OPENPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -1920,9 +1920,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
-        "max_value": 824148587.0,
-        "min_value": 824148587.0
+        "column": "OPENPRICE",
+        "max_value": 802460332.0,
+        "min_value": 802460332.0
       },
       "meta": {}
     },
@@ -1933,9 +1933,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
-        "max_value": 530817.6216080545,
-        "min_value": 530817.6216080545
+        "column": "OPENPRICE",
+        "max_value": 512808.72295850934,
+        "min_value": 512808.72295850934
       },
       "meta": {}
     },
@@ -1946,9 +1946,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
-        "max_value": 0.004494,
-        "min_value": 0.004494
+        "column": "OPENPRICE",
+        "max_value": 0.004936,
+        "min_value": 0.004936
       },
       "meta": {}
     },
@@ -1960,7 +1960,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "openPrice",
+        "column": "OPENPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -1975,20 +1975,20 @@
               0.0
             ],
             [
-              4.2e-07,
-              4.2e-07
+              5.8e-07,
+              5.8e-07
             ],
             [
-              0.004494,
-              0.004494
+              0.004916,
+              0.004916
             ],
             [
-              2.389,
-              2.389
+              2.334,
+              2.334
             ],
             [
-              575.0,
-              575.0
+              567.1,
+              567.1
             ]
           ]
         }
@@ -2002,7 +2002,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice"
+        "column": "OPENPRICE"
       },
       "meta": {}
     },
@@ -2013,9 +2013,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
-        "max_value": 0.7335180055401662,
-        "min_value": 0.7335180055401662
+        "column": "OPENPRICE",
+        "max_value": 0.72992299229923,
+        "min_value": 0.72992299229923
       },
       "meta": {}
     },
@@ -2026,7 +2026,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openPrice",
+        "column": "OPENPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -2056,9 +2056,9 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
-        "max_value": 1637836159863,
-        "min_value": 1637836159863
+        "column": "OPENTIME",
+        "max_value": 1638356896961,
+        "min_value": 1638356896961
       },
       "meta": {}
     },
@@ -2069,9 +2069,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
-        "max_value": 1638289787157,
-        "min_value": 1638289787157
+        "column": "OPENTIME",
+        "max_value": 1638549693106,
+        "min_value": 1638549693106
       },
       "meta": {}
     },
@@ -2082,9 +2082,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
-        "max_value": 1638177439731.3374,
-        "min_value": 1638177439731.3374
+        "column": "OPENTIME",
+        "max_value": 1638501859204.878,
+        "min_value": 1638501859204.878
       },
       "meta": {}
     },
@@ -2095,9 +2095,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
-        "max_value": 1638289783622.0,
-        "min_value": 1638289783622.0
+        "column": "OPENTIME",
+        "max_value": 1638549690016.0,
+        "min_value": 1638549690016.0
       },
       "meta": {}
     },
@@ -2109,7 +2109,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "openTime",
+        "column": "OPENTIME",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -2120,24 +2120,24 @@
           ],
           "value_ranges": [
             [
-              1637836159863,
-              1637836159863
+              1638356896961,
+              1638356896961
             ],
             [
-              1638289460980,
-              1638289460980
+              1638549191315,
+              1638549191315
             ],
             [
-              1638289783622,
-              1638289783622
+              1638549690013,
+              1638549690013
             ],
             [
-              1638289786286,
-              1638289786286
+              1638549692739,
+              1638549692739
             ],
             [
-              1638289787088,
-              1638289787088
+              1638549693084,
+              1638549693084
             ]
           ]
         }
@@ -2151,7 +2151,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime"
+        "column": "OPENTIME"
       },
       "meta": {}
     },
@@ -2162,9 +2162,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
-        "max_value": 0.6376731301939058,
-        "min_value": 0.6376731301939058
+        "column": "OPENTIME",
+        "max_value": 0.5836083608360836,
+        "min_value": 0.5836083608360836
       },
       "meta": {}
     },
@@ -2175,7 +2175,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "openTime",
+        "column": "OPENTIME",
         "type_list": [
           "INTEGER",
           "integer",
@@ -2209,7 +2209,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
+        "column": "PREVCLOSEPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -2222,9 +2222,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
-        "max_value": 823218572.0,
-        "min_value": 823218572.0
+        "column": "PREVCLOSEPRICE",
+        "max_value": 802865712.0,
+        "min_value": 802865712.0
       },
       "meta": {}
     },
@@ -2235,9 +2235,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
-        "max_value": 942384.5539383244,
-        "min_value": 942384.5539383244
+        "column": "PREVCLOSEPRICE",
+        "max_value": 922037.7501029689,
+        "min_value": 922037.7501029689
       },
       "meta": {}
     },
@@ -2248,9 +2248,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
-        "max_value": 0.09793,
-        "min_value": 0.09793
+        "column": "PREVCLOSEPRICE",
+        "max_value": 0.10435,
+        "min_value": 0.10435
       },
       "meta": {}
     },
@@ -2262,7 +2262,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "prevClosePrice",
+        "column": "PREVCLOSEPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -2273,24 +2273,24 @@
           ],
           "value_ranges": [
             [
-              3e-06,
-              3e-06
+              3.17e-06,
+              3.17e-06
             ],
             [
-              0.000352,
-              0.000352
+              0.00037604,
+              0.00037604
             ],
             [
-              0.09793,
-              0.09793
+              0.1042,
+              0.1042
             ],
             [
-              5.696,
-              5.696
+              5.746,
+              5.746
             ],
             [
-              2768.8,
-              2768.8
+              2759.0,
+              2759.0
             ]
           ]
         }
@@ -2304,7 +2304,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice"
+        "column": "PREVCLOSEPRICE"
       },
       "meta": {}
     },
@@ -2315,9 +2315,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
-        "max_value": 0.9595567867036011,
-        "min_value": 0.9595567867036011
+        "column": "PREVCLOSEPRICE",
+        "max_value": 0.9653465346534653,
+        "min_value": 0.9653465346534653
       },
       "meta": {}
     },
@@ -2328,7 +2328,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "prevClosePrice",
+        "column": "PREVCLOSEPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -2358,7 +2358,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
+        "column": "QUOTEVOLUME",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -2371,9 +2371,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
-        "max_value": 162098700878.8,
-        "min_value": 162098700878.8
+        "column": "QUOTEVOLUME",
+        "max_value": 407028022926.82,
+        "min_value": 407028022926.82
       },
       "meta": {}
     },
@@ -2384,9 +2384,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
-        "max_value": 299327949.41828555,
-        "min_value": 299327949.41828555
+        "column": "QUOTEVOLUME",
+        "max_value": 788412693.684975,
+        "min_value": 788412693.684975
       },
       "meta": {}
     },
@@ -2397,9 +2397,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
-        "max_value": 898.484471,
-        "min_value": 898.484471
+        "column": "QUOTEVOLUME",
+        "max_value": 1825.2866135949998,
+        "min_value": 1825.2866135949998
       },
       "meta": {}
     },
@@ -2411,7 +2411,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "quoteVolume",
+        "column": "QUOTEVOLUME",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -2426,20 +2426,20 @@
               0.0
             ],
             [
-              2.25869629,
-              2.25869629
+              6.04070013,
+              6.04070013
             ],
             [
-              898.484471,
-              898.484471
+              1815.93352461,
+              1815.93352461
             ],
             [
-              3864598.4472,
-              3864598.4472
+              7818202.5904,
+              7818202.5904
             ],
             [
-              113776910.2387,
-              113776910.2387
+              211767489.9866,
+              211767489.9866
             ]
           ]
         }
@@ -2453,7 +2453,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume"
+        "column": "QUOTEVOLUME"
       },
       "meta": {}
     },
@@ -2464,9 +2464,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
-        "max_value": 0.7529085872576178,
-        "min_value": 0.7529085872576178
+        "column": "QUOTEVOLUME",
+        "max_value": 0.7546754675467546,
+        "min_value": 0.7546754675467546
       },
       "meta": {}
     },
@@ -2477,7 +2477,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "quoteVolume",
+        "column": "QUOTEVOLUME",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -2507,7 +2507,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
+        "column": "VOLUME",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -2520,9 +2520,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
-        "max_value": 29239020912190.0,
-        "min_value": 29239020912190.0
+        "column": "VOLUME",
+        "max_value": 30901125179290.0,
+        "min_value": 30901125179290.0
       },
       "meta": {}
     },
@@ -2533,9 +2533,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
-        "max_value": 23105837999.005806,
-        "min_value": 23105837999.005806
+        "column": "VOLUME",
+        "max_value": 23793620264.015903,
+        "min_value": 23793620264.015903
       },
       "meta": {}
     },
@@ -2546,9 +2546,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
-        "max_value": 203480.2,
-        "min_value": 203480.2
+        "column": "VOLUME",
+        "max_value": 456091.0,
+        "min_value": 456091.0
       },
       "meta": {}
     },
@@ -2560,7 +2560,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "volume",
+        "column": "VOLUME",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -2575,20 +2575,20 @@
               0.0
             ],
             [
-              8.1663,
-              8.1663
+              87.432421,
+              87.432421
             ],
             [
-              203480.2,
-              203480.2
+              448025.0,
+              448025.0
             ],
             [
-              3891774.0,
-              3891774.0
+              9555987.0,
+              9555987.0
             ],
             [
-              112968756.0,
-              112968756.0
+              395497309.0,
+              395497309.0
             ]
           ]
         }
@@ -2602,7 +2602,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume"
+        "column": "VOLUME"
       },
       "meta": {}
     },
@@ -2613,9 +2613,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
-        "max_value": 0.7529085872576178,
-        "min_value": 0.7529085872576178
+        "column": "VOLUME",
+        "max_value": 0.7546754675467546,
+        "min_value": 0.7546754675467546
       },
       "meta": {}
     },
@@ -2626,7 +2626,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "volume",
+        "column": "VOLUME",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -2656,7 +2656,7 @@
       "expectation_type": "expect_column_min_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
+        "column": "WEIGHTEDAVGPRICE",
         "max_value": 0.0,
         "min_value": 0.0
       },
@@ -2669,9 +2669,9 @@
       "expectation_type": "expect_column_max_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
-        "max_value": 827376868.0,
-        "min_value": 827376868.0
+        "column": "WEIGHTEDAVGPRICE",
+        "max_value": 724784542.21,
+        "min_value": 724784542.21
       },
       "meta": {}
     },
@@ -2682,9 +2682,9 @@
       "expectation_type": "expect_column_mean_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
-        "max_value": 533707.7067532828,
-        "min_value": 533707.7067532828
+        "column": "WEIGHTEDAVGPRICE",
+        "max_value": 463995.9847143336,
+        "min_value": 463995.9847143336
       },
       "meta": {}
     },
@@ -2695,9 +2695,9 @@
       "expectation_type": "expect_column_median_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
-        "max_value": 0.00462122,
-        "min_value": 0.00462122
+        "column": "WEIGHTEDAVGPRICE",
+        "max_value": 0.00450139,
+        "min_value": 0.00450139
       },
       "meta": {}
     },
@@ -2709,7 +2709,7 @@
       "ge_cloud_id": null,
       "kwargs": {
         "allow_relative_error": "lower",
-        "column": "weightedAvgPrice",
+        "column": "WEIGHTEDAVGPRICE",
         "quantile_ranges": {
           "quantiles": [
             0.05,
@@ -2724,20 +2724,20 @@
               0.0
             ],
             [
-              4.1e-07,
-              4.1e-07
+              5.1e-07,
+              5.1e-07
             ],
             [
-              0.00462122,
-              0.00462122
+              0.00448652,
+              0.00448652
             ],
             [
-              2.44272526,
-              2.44272526
+              2.02041673,
+              2.02041673
             ],
             [
-              574.80701361,
-              574.80701361
+              545.49340186,
+              545.49340186
             ]
           ]
         }
@@ -2751,7 +2751,7 @@
       "expectation_type": "expect_column_values_to_not_be_null",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice"
+        "column": "WEIGHTEDAVGPRICE"
       },
       "meta": {}
     },
@@ -2762,9 +2762,9 @@
       "expectation_type": "expect_column_proportion_of_unique_values_to_be_between",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
-        "max_value": 0.749584487534626,
-        "min_value": 0.749584487534626
+        "column": "WEIGHTEDAVGPRICE",
+        "max_value": 0.746974697469747,
+        "min_value": 0.746974697469747
       },
       "meta": {}
     },
@@ -2775,7 +2775,7 @@
       "expectation_type": "expect_column_values_to_be_in_type_list",
       "ge_cloud_id": null,
       "kwargs": {
-        "column": "weightedAvgPrice",
+        "column": "WEIGHTEDAVGPRICE",
         "type_list": [
           "FLOAT",
           "FLOAT4",
@@ -2806,10 +2806,10 @@
         "batch_request": {
           "data_asset_name": "tmpcsv.csv",
           "data_connector_name": "default_inferred_data_connector_name",
-          "datasource_name": "datasource",
+          "datasource_name": "local",
           "limit": 1000
         },
-        "citation_date": "2021-12-02T05:26:01.020357Z",
+        "citation_date": "2021-12-05T07:20:31.415562Z",
         "comment": "Created suite added via CLI"
       }
     ],
