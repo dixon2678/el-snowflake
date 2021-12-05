@@ -22,6 +22,9 @@ from gcloud import storage
 from docker.types import Mount
 os.environ["GCLOUD_PROJECT"] = Variable.get("GCLOUD_PROJECT")
 project_root = Variable.get("PROJECT_ROOT")
+snowflake_user = Variable.get("SNOWFLAKE_USER")
+snowflake_password = Variable.get("SNOWFLAKE_PASSWORD")
+snowflake_account = Variable.get("SNOWFLAKE_ACCOUNT")
 
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
@@ -111,7 +114,10 @@ with DAG(
         entrypoint='python3 /connectors/snowflake_conn.py',
         environment={
         'PROJECT_ROOT': project_root,
-        'GCLOUD_PROJECT': os.environ["GCLOUD_PROJECT"]
+        'GCLOUD_PROJECT': os.environ["GCLOUD_PROJECT"],
+        'SNOWFLAKE_USER': snowflake_user,
+        'SNOWFLAKE_PASSWORD': snowflake_password,
+        'SNOWFLAKE_ACCOUNT': snowflake_account
         }
     )
     
