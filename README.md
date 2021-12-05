@@ -1,9 +1,11 @@
 # el-snowflake
 
-An EL (Extract-Load) script to Snowflake Cloud Data Warehouse. The pipeline fetches data from Binance's cryptocurrency prices API, preprocesses with Spark, data quality testing/validation with Great Expecatations, and loads it to Snowflake as the core Analytical DB. Almost all of the tasks are containerized with Docker, and Airflow is used for workflow orchestration. This project reflects Data Engineering my biases to E(t)LT process.
+An EL (Extract-Load) script to Snowflake Cloud Data Warehouse. The pipeline fetches data from Binance's cryptocurrency prices API, preprocesses with Spark, data quality testing/validation with Great Expecatations, and loads it to Snowflake as the core Analytical DB. Almost all of the tasks are containerized with Docker, and Airflow is used for workflow orchestration. This project reflects my Data Engineering biases to E(t)LT process.
 
 E - Extract : Extract Raw Data from Source
-t - Pre-loading Transformation : Data Transformation stage. Note the small (t),
+t - Pre-loading Transformation : Data Transformation stage. Note the small (t), that is because the transformations in this stage are very minor (e.g. ensuring correct formats for the DB) without too much altering the 'raw' state of the data.
+L - Load : The arguably still 'raw' data are loaded into Data Warehouse
+T - Data Modeling & Transformation : This is where major Transformations will take place. Adjusting to the requirements of business stakeholders, Data Analysts will be primarily in charge of this process and create SQL Data Models.
 
 P.S. This project is intentionally over-engineered (for the comparatively small Binance API data), with the purpose of emulating a real-life analytical scenario with larger batches of data!
 
