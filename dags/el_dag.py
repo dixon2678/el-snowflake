@@ -20,11 +20,17 @@ import pandas as pd
 import os
 from gcloud import storage
 from docker.types import Mount
+
+# Get the Airflow's environment variables to Python variables
+
 os.environ["GCLOUD_PROJECT"] = Variable.get("GCLOUD_PROJECT")
 project_root = Variable.get("PROJECT_ROOT")
 snowflake_user = Variable.get("SNOWFLAKE_USER")
 snowflake_password = Variable.get("SNOWFLAKE_PASSWORD")
 snowflake_account = Variable.get("SNOWFLAKE_ACCOUNT")
+creds = Variable.get("google_creds", deserialize_json=False)
+
+# Function to download a blob from GCS
 
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
@@ -37,6 +43,8 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
     print('Blob {} downloaded to {}.'.format(
         source_blob_name,
         destination_file_name))
+
+# Mount object, mount creds.json to Docker container
     
 secret_dir = Mount(target='/secret',
                      source=project_root,
@@ -64,7 +72,7 @@ default_args = {
     # 'sla_miss_callback': yet_another_function,
     # 'trigger_rule': 'all_success'
 }
-creds = Variable.get("google_creds", deserialize_json=False)
+
 with DAG(
     'Data-Pipeline',
     default_args=default_args,
@@ -73,14 +81,16 @@ with DAG(
     start_date=days_ago(2),
     tags=['dag'],
 ) as dag:
-    # Echoing the environment variables (credentials, etc) to access.json file
+    
+    # Echoing the environment variables (credentials, etc) to creds.json file
 
     t1 = BashOperator(
         task_id='access_key',
         bash_command='echo {{ var.value.google_creds }} > ' + project_root + '/creds.json',
     )
     
-
+    # First Container run
+    
     t2 = DockerOperator(
         task_id='pull_data',
         image='ghcr.io/dixon2678/el-snowflake:main',
@@ -92,6 +102,8 @@ with DAG(
         'GCLOUD_PROJECT': os.environ["GCLOUD_PROJECT"]
         }
     )
+    
+    # Pull tmp csv from GCS for quality testing
 
     t3 = PythonOperator(
         task_id='download_tmpcsv',
@@ -99,11 +111,14 @@ with DAG(
         op_kwargs = {"bucket_name" : "binance_project", "source_blob_name" : "tmpcsv.csv", "destination_file_name" : project_root + "/tmpcsv.csv"},
         dag=dag,
     )
-
+    # Run Great Expectations checkpoint
+    
     t4 = BashOperator(
         task_id='ge_checkpoint',
         bash_command='cd '+ project_root + ' && great_expectations --v3-api checkpoint run data_pull || true'
     )
+    
+    # Second Container Run
     
     t5 = DockerOperator(
         task_id='push_data',
