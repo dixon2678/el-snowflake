@@ -8,6 +8,9 @@ from gcloud import storage
 # os.environ["GCLOUD_PROJECT"] = "My First Project"
 # os.environ["PROJECT_ROOT"] = "/Users/dix/Desktop/portfolio/el-snowflake"
 project_root = os.environ["PROJECT_ROOT"]
+
+# Function to download the tmp csv file from GCS
+
 def download_blob(bucket_name, source_blob_name, destination_file_name):
     """Downloads a blob from the bucket."""
     storage_client = storage.Client.from_service_account_json(
@@ -20,7 +23,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         source_blob_name,
         destination_file_name))
 
-
+# Main
 
 download_blob("binance_project", "tmpcsv.csv", "finalcsv.csv")
 table_name = 'BINANCE_PRICES'
@@ -33,9 +36,14 @@ conn = snowflake.connector.connect(
         account=os.environ["SNOWFLAKE_ACCOUNT"],
         role='SYSADMIN',
     )
+
+# Execute SQL Query to use the correct DB
+
 conn.cursor().execute("USE DATABASE BINANCE")
 
 df = pd.read_csv('finalcsv.csv')
+
+# write_pandas is a functionality from Snowflake connector to directly write pandas df into a table
 
 write_pandas(
             conn=conn,
