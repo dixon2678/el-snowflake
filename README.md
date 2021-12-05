@@ -2,92 +2,35 @@
 
 An EL (Extract-Load) script to Snowflake Cloud Data Warehouse.
 
-## Getting started
+## Architecture Diagram
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+<img width="970" alt="Screen Shot 2021-12-05 at 10 00 22 PM" src="https://user-images.githubusercontent.com/81808129/144749622-c25ca41d-a5ec-4cff-aacd-631a6c7dfa14.png">
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Tools/Frameworks Used
 
-## Add your files
+- Docker : Deploying a script with a lot of dependencies is often a troublesome process. Docker solves this problem by packaging the script, libraries, and runtime in a single container. The container then can be ran anywhere on all machines (local or cloud) and all Operating Systems, given it can run Docker Container Engine. Docker is the foundation of this project, allowing this pipeline to be deployed anywhere (e.g. migration to cloud!) with minimal trouble.
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- Airflow : A workflow orchestrator, simplifying the management of complex workflows. Airflow workflows are written in DAGs (Directed Acyclic Graph) with Python (Configurations-as-Code). Airflow is commonly used in modern data pipelines
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/dixon2678/el-snowflake.git
-git branch -M main
-git push -uf origin main
-```
+- PySpark : Python API for Spark. Spark is a data processing framework that is designed for Big Data Analytics, leveraging Parallel Processing and is written in Scala
 
-## Integrate with your tools
+- Great Expectations : A new and promising Python library, designed for data quality testing and validation. Great Expectations comes with intuitive configurators and HTML based Data Docs. Great Expectations can be easily integrated to data pipelines, and Airflow has an operator for Great Expectations tasks (GreatExpectationsOperator).
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://gitlab.com/dixon2678/el-snowflake/-/settings/integrations)
 
-## Collaborate with your team
+## Services Used
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- Binance API: Binance REST API is used to gather a dataset of Cryptocurrency prices
 
-## Test and Deploy
+- Google Cloud Storage (Data Lake): Storage Bucket for staging area
 
-Use the built-in continuous integration in GitLab.
+- Snowflake: Main Analytical Cloud Data Warehouse used for this Project
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Airflow DAG Graph
 
-***
+<img width="1361" alt="Screen Shot 2021-12-05 at 10 18 03 PM" src="https://user-images.githubusercontent.com/81808129/144750342-1a98512e-d774-4e3f-b1d5-3ff929c9d16c.png">
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:36eb23167887494685a901fb548d7dbe?https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
+- access_key - BashOperator: Bash command to store the google_creds environment variable to the project path
+- pull_data - DockerOperator: Pull Docker image from GitHub's Packages Container Registry - Python Script to pull data from Binance API, preprocess with Spark, and Upload to GCS Bucket. (WIP: Add testing to Raw Binance data with Great Expectations)
+- download_tmpcsv - PythonOperator: Download csv temporary data from GCS Bucket.
+- ge_checkpoint - BashOperator: Run a Great Expectations checkpoint to validate the temporary csv data. Currently this task is set to succeed no matter what is the outcome of the tests (WIP: Tune the expectation suite to better suit the requirements).
+- push_data - DockerOperator: If the previous tasks succeed, upload the temporary csv data as final data to Snowflake.
