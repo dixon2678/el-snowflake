@@ -64,7 +64,8 @@ Unit Testing, Linting, and other intermediary steps between Build and Push are f
 1. <a href="https://airflow.apache.org/docs/apache-airflow/stable/installation/index.html">Install Airflow</a>
 2. Set up a new Airflow user and Initialize Airflow's backend DB with airflow db init, scheduler with airflow scheduler, and webserver with airflow webserver -D
 3. Access Airflow's webserver (0.0.0.0:8080 is the default address)
-4. Navigate to Admin -> Variables <img width="602" alt="Screen Shot 2021-12-05 at 11 11 07 PM" src="https://user-images.githubusercontent.com/81808129/144752294-e4ed9935-b66e-4638-8a29-3eece3b74938.png">
+4. Navigate to Admin -> Variables 
+<img width="602" alt="Screen Shot 2021-12-05 at 11 11 07 PM" src="https://user-images.githubusercontent.com/81808129/144752294-e4ed9935-b66e-4638-8a29-3eece3b74938.png">
 5. Set up the above required variables
 6. Ensure the DAG file is accessible by Airflow
 7. Unpause the DAG and press the start button
