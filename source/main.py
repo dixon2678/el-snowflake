@@ -10,12 +10,12 @@ from pyspark.sql import functions as F
 from gcloud import storage
 
 os.environ["GCLOUD_PROJECT"] = "My First Project"
-project_root = os.environ["PROJECT_ROOT"]
+# project_root = os.environ["PROJECT_ROOT"]
 def upload_to_bucket(blob_name, path_to_file, bucket_name):
     """ Upload data to a bucket"""
 
     storage_client = storage.Client.from_service_account_json(
-        project_root + '/creds.json')
+        '/secret/creds.json')
 
     bucket = storage_client.get_bucket(bucket_name)
     blob = bucket.blob(blob_name)
